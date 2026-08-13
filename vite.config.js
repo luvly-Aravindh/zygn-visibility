@@ -5,13 +5,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/', // 👈 sets your deployment base URL
-  server: {
-    proxy: {
-      '/zygn/php': {
-        target: 'http://localhost:8000',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/zygn\/php/, '')
-      }
-    }
-  }
 })

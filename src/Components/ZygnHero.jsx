@@ -84,7 +84,7 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
-      className="text-[30px] leading-tight font-extrabold sm:text-[28px] md:text-7xl"
+      className="text-[22px] leading-tight font-extrabold sm:text-[28px] md:text-7xl"
     >
       <span className="text-red-500"> YOUR INTERIOR DESIGN-BUILD</span>
     </motion.h1>
@@ -108,7 +108,7 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.15 }}
-    className="mt-2 sm:mt-0 text-[25px] leading-tight font-extrabold sm:text-[28px] md:text-7xl"
+    className="mt-2 sm:mt-0 text-[22px] leading-tight font-extrabold sm:text-[28px] md:text-7xl"
   >
 FROM FIRST LEAD TO   </motion.h1>
 
@@ -127,7 +127,7 @@ FROM FIRST LEAD TO   </motion.h1>
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.2 }}
-    className="text-[22px] sm:text-[28px] md:text-7xl font-extrabold text-center leading-tight"
+    className="text-[20px] sm:text-[28px] md:text-7xl font-extrabold text-center leading-tight"
   >
 FINAL PROJECT DELIVERY  </motion.h1>
 

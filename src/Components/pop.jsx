@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import boatcraftLogo from "../assets/form-logo.png";
 import "../Components/pop.css";
+import { submitLead } from "../lib/submitLead";
+
+const TIDYCAL_URL = "https://tidycal.com/marketingptgtech/30min-free-zygn-demo";
+const LEAD_SUBJECT = "visibility - Zygn Interior Design & Design";
 
 const Popup = ({ show, onClose }) => {
   const [msg, setMsg] = useState("");
@@ -18,7 +22,8 @@ const Popup = ({ show, onClose }) => {
     studio_name: "",
     email: "",
     monthly_projects: "",
-    project_details: ""
+    project_details: "",
+    honeypot: ""
   });
 
   const countries = [
@@ -123,13 +128,6 @@ const Popup = ({ show, onClose }) => {
     { name: "ZW", code: "+263", flag: "https://flagcdn.com/w20/zw.png" },
   ];
 
-  // useEffect(() => {
-  //   fetch("https://getnos.io/zygn/php/index.php")
-  //     .then((response) => response.json())
-  //     .then((data) => setMsg(data.message))
-  //     .catch((error) => console.error("Error fetching data:", error));
-  // }, []);
-
   useEffect(() => {
     return () => {
       if (cooldownTimerRef.current) {
@@ -181,6 +179,8 @@ const Popup = ({ show, onClose }) => {
   // Handle changes for all input fields
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    setMsg("");
+    setSubmitSuccess(false);
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -194,31 +194,30 @@ const Popup = ({ show, onClose }) => {
       return;
     }
 
+    setMsg("");
     startSubmitCooldown();
     setIsSubmitting(true);
 
     const submissionData = {
-      full_name: formData.full_name,
+      name: formData.full_name.trim(),
+      full_name: formData.full_name.trim(),
       studio_name: formData.studio_name,
-      email: formData.email,
+      email: formData.email.trim(),
       country_code: countryCode,
+      phone: `${countryCode} ${phone}`,
       mobile: phone,
       monthly_projects: formData.monthly_projects,
-      project_details: formData.project_details
+      project_details: formData.project_details,
+      subject: LEAD_SUBJECT,
+      source: "Zygn visibility landing page",
+      page: window.location.href,
+      honeypot: formData.honeypot,
     };
 
     try {
-      const response = await fetch("/zygn/php/index.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(submissionData)
-      });
+      const data = await submitLead(submissionData);
 
-      const data = await response.json();
-
-      if (response.ok && data.status) {
+      if (data.status || data.duplicate || Object.keys(data).length === 0) {
 
   setSubmitSuccess(true);
   setMsg(data.message || "Form submitted successfully!");
@@ -226,7 +225,7 @@ const Popup = ({ show, onClose }) => {
   // ✅ Enable button BEFORE redirect
   setIsSubmitting(false);
 
-  const redirectUrl = data.redirect || "/zygn/php/index.php";
+  const redirectUrl = TIDYCAL_URL;
   setTimeout(() => {
     window.location.href = redirectUrl;
   }, 1000);
@@ -285,6 +284,16 @@ const Popup = ({ show, onClose }) => {
         >
           {/* Basic Fields */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="honeypot"
+              value={formData.honeypot}
+              onChange={handleInputChange}
+              tabIndex="-1"
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
 
             {/* Full Name */}
             <input

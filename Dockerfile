@@ -16,9 +16,6 @@ RUN mkdir -p /var/www/html/zygn
 # Copy Vite build (index.html will be at /zygn/index.html)
 COPY --from=build /app/dist /var/www/html/zygn
 
-# Copy PHP scripts (process form at /zygn/php/index.php)
-COPY php /var/www/html/zygn/php
-
 # Copy Thank You page (accessible at /zygn/thank-you/index.html)
 COPY thankyou /var/www/html/zygn/thank-you
 
