@@ -170,6 +170,16 @@ const Popup = ({ show, onClose }) => {
     return valid;
   };
 
+  const validateWorkEmail = (value) => {
+    const domain = value.trim().toLowerCase().split("@")[1];
+    if (domain === "gmail.com" || domain === "googlemail.com") {
+      setError("Please use your work email address. Gmail addresses are not accepted.");
+      return false;
+    }
+
+    return true;
+  };
+
   const handlePhoneChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
     setPhone(value);
@@ -191,6 +201,10 @@ const Popup = ({ show, onClose }) => {
     e.preventDefault();
 
     if (!validatePhone(phone)) {
+      return;
+    }
+
+    if (!validateWorkEmail(formData.email)) {
       return;
     }
 
