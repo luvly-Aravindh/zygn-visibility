@@ -66,82 +66,38 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
 </div>
 
 
-<div className="mt-6 w-full text-center px-0 sm:px-0">
+<div className="mt-6 w-full text-center">
   <motion.h1
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.7 }}
-    className="font-extrabold leading-tight tracking-tight"
+    className="mx-auto w-full font-extrabold leading-[1.12] tracking-tight text-[1.3rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl"
   >
-    {/* Mobile: 5 intentional nowrap lines */}
-    <span className="sm:hidden text-[1.15rem]">
+    {/* Mobile */}
+    <span className="sm:hidden">
       <span className="block whitespace-nowrap">RUN YOUR INTERIOR</span>
-      <span className="block whitespace-nowrap">DESIGN‑BUILD</span>
-      <span className="block whitespace-nowrap text-red-500">FIRM WITH REAL‑TIME CONTROL,</span>
-      <span className="block whitespace-nowrap">NOT SPREADSHEETS, CHATS, AND</span>
-      <span className="block whitespace-nowrap">CONSTANT FOLLOW‑UPS</span>
+      <span className="block whitespace-nowrap">DESIGN‑BUILD FIRM</span>
+      <span className="block whitespace-nowrap text-red-500">WITH REAL‑TIME CONTROL,</span>
+      <span className="block whitespace-nowrap">NOT SPREADSHEETS, CHATS,</span>
+      <span className="block whitespace-nowrap">AND CONSTANT FOLLOW‑UPS</span>
     </span>
 
-    {/* Tablet: 4 balanced lines */}
-    <span className="hidden sm:block lg:hidden text-2xl md:text-3xl">
+    {/* Tablet */}
+    <span className="hidden sm:block lg:hidden">
       <span className="block whitespace-nowrap">RUN YOUR INTERIOR DESIGN‑BUILD</span>
       <span className="block whitespace-nowrap text-red-500">FIRM WITH REAL‑TIME CONTROL,</span>
       <span className="block whitespace-nowrap">NOT SPREADSHEETS, CHATS, AND</span>
       <span className="block whitespace-nowrap">CONSTANT FOLLOW‑UPS</span>
     </span>
 
-    {/* Desktop: full lines */}
-    <span className="hidden lg:block lg:text-5xl xl:text-6xl 2xl:text-7xl">
+    {/* Desktop */}
+    <span className="hidden lg:block">
       <span className="block whitespace-nowrap">RUN YOUR INTERIOR DESIGN‑BUILD</span>
       <span className="block whitespace-nowrap text-red-500">FIRM WITH REAL‑TIME CONTROL,</span>
       <span className="block whitespace-nowrap">NOT SPREADSHEETS, CHATS, AND</span>
       <span className="block whitespace-nowrap">CONSTANT FOLLOW‑UPS</span>
     </span>
   </motion.h1>
-
-  <div className="mt-5 sm:mt-8 grid grid-cols-2 sm:flex sm:flex-row items-center justify-center max-w-[16.5rem] sm:max-w-none mx-auto gap-1.5 sm:gap-3">
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
-      className="rounded-full bg-purple-600 px-2.5 py-1.5 sm:px-5 sm:py-2.5 text-white text-center"
-    >
-      <span className="block text-[11px] sm:text-sm font-bold leading-tight">
-        India-First
-      </span>
-      <span className="block text-[9px] sm:text-xs font-normal leading-tight">
-        End-to-End Workflow
-      </span>
-    </motion.div>
-
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.25 }}
-      className="rounded-full bg-red-600 px-2.5 py-1.5 sm:px-5 sm:py-2.5 text-white text-center"
-    >
-      <span className="block text-[11px] sm:text-sm font-bold leading-tight">
-        ₹50–400 CR
-      </span>
-      <span className="block text-[9px] sm:text-xs font-normal leading-tight">
-        Project Values Managed
-      </span>
-    </motion.div>
-
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3 }}
-      className="col-span-2 justify-self-center sm:col-span-1 w-fit rounded-full bg-green-500 px-2.5 py-1.5 sm:px-5 sm:py-2.5 text-white text-center"
-    >
-      <span className="block text-[11px] sm:text-sm font-bold leading-tight">
-        300 USERS
-      </span>
-      <span className="block text-[9px] sm:text-xs font-normal leading-tight">
-        35% Increase in Productivity
-      </span>
-    </motion.div>
-  </div>
 </div>
 
 
@@ -200,6 +156,50 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
 
           <ProgressLoad />
         </motion.div>
+
+        <div className="mt-8 sm:mt-10 grid grid-cols-2 sm:flex sm:flex-row items-center justify-center max-w-[16.5rem] sm:max-w-none mx-auto gap-1.5 sm:gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="rounded-full bg-purple-600 px-2.5 py-1.5 sm:px-5 sm:py-2.5 text-white text-center"
+          >
+            <span className="block text-[11px] sm:text-sm font-bold leading-tight">
+              India-First
+            </span>
+            <span className="block text-[9px] sm:text-xs font-normal leading-tight">
+              End-to-End Workflow
+            </span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="rounded-full bg-red-600 px-2.5 py-1.5 sm:px-5 sm:py-2.5 text-white text-center"
+          >
+            <span className="block text-[11px] sm:text-sm font-bold leading-tight">
+              ₹50–400 CR
+            </span>
+            <span className="block text-[9px] sm:text-xs font-normal leading-tight">
+              Project Values Managed
+            </span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="col-span-2 justify-self-center sm:col-span-1 w-fit rounded-full bg-green-500 px-2.5 py-1.5 sm:px-5 sm:py-2.5 text-white text-center"
+          >
+            <span className="block text-[11px] sm:text-sm font-bold leading-tight">
+              300 USERS
+            </span>
+            <span className="block text-[9px] sm:text-xs font-normal leading-tight">
+              35% Increase in Productivity
+            </span>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
